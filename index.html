@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stratek Labs - Développement d'Applications Multi-Plateformes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .service-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+        }
+        
+        .dark .service-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.4);
+        }
+        
+        .platform-icon {
+            transition: transform 0.3s, color 0.3s;
+        }
+        
+        .platform-icon:hover {
+            transform: scale(1.2);
+            color: #3b82f6;
+        }
+        
+        .dark .platform-icon:hover {
+            color: #8b5cf6;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2 h-32">
+                <!-- Logo placeholder - replace with your actual logo -->
+                <span class="text-xl font-bold w-56"><img src="./assets/logo.png"></span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#services" class="hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Services</a>
+                <a href="#platforms" class="hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Plateformes</a>
+                <a href="#process" class="hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Processus</a>
+                <a href="#contact" class="hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Contact</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+                
+                <a href="#contact" class="hidden md:block bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-2 rounded-full transition-colors">
+                    Nous contacter
+                </a>
+                
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-800 shadow-lg">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-2">
+                <a href="#services" class="py-2 hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Services</a>
+                <a href="#platforms" class="py-2 hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Plateformes</a>
+                <a href="#process" class="py-2 hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Processus</a>
+                <a href="#contact" class="py-2 hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    développement de solution <span class="gradient-text">multi-plateformes</span> sur mesure
+                </h1>
+                <p class="text-lg mb-8 text-gray-600 dark:text-gray-300">
+                    Transformez vos idées en applications performantes disponibles sur toutes les plateformes : Web, iOS, Android, macOS, Windows.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#services" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-full transition-colors">
+                        Découvrir nos services
+                    </a>
+                    <a href="#contact" class="border-2 border-blue-500 dark:border-purple-500 text-blue-500 dark:text-purple-400 hover:bg-blue-50 dark:hover:bg-gray-800 px-8 py-3 rounded-full transition-colors">
+                        Nous contacter
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <div class="relative">
+                    <!-- Illustration representing multi-platform development -->
+                    <svg class="w-full h-auto" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Laptop -->
+                        <!-- Base écran -->
+                        <rect x="100" y="150" width="300" height="180" rx="10" fill="#2a2a2a" />
+                        <rect x="110" y="160" width="280" height="150" rx="3" fill="#f8fafc" />
+                        <rect x="150" y="330" width="200" height="10" rx="5" fill="#2a2a2a" />
+
+                        <!-- Téléphone -->
+                        <rect x="330" y="100" width="70" height="140" rx="10" fill="#2a2a2a" />
+                        <rect x="335" y="110" width="60" height="110" rx="3" fill="#f8fafc" />
+                        <circle cx="365" cy="230" r="7" fill="#f8fafc" />
+
+                        <!-- Tablette -->
+                        <rect x="80" y="80" width="140" height="180" rx="10" fill="#2a2a2a" />
+                        <rect x="90" y="90" width="120" height="150" rx="3" fill="#f8fafc" />
+                        <circle cx="150" cy="250" r="7" fill="#f8fafc" />
+
+                        <!-- Symboles </> -->
+                        <text x="160" y="110" font-family="monospace" font-size="12" fill="url(#grad1)">&lt;/&gt;</text>
+                        <text x="350" y="130" font-family="monospace" font-size="8" fill="url(#grad1)">&lt;/&gt;</text>
+                        <text x="250" y="200" font-family="monospace" font-size="14" fill="url(#grad1)">&lt;/&gt;</text>
+
+                        <!-- Lignes arrondies style aller-retour évitant les textes -->
+                        <!-- Gauche -> Haut droite -->
+                        <path d="M170,110 C180,60 330,60 360,120" stroke="url(#grad1)" stroke-width="2" fill="none" />
+
+                        <!-- Haut droite -> Centre bas -->
+                        <path d="M360,130 C370,160 270,170 260,190" stroke="url(#grad1)" stroke-width="2" fill="none" />
+
+                        <!-- Centre bas -> Gauche -->
+                        <path d="M260,200 C220,230 120,220 170,120" stroke="url(#grad1)" stroke-width="2" fill="none" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wave separator -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-12 text-white dark:text-gray-900 fill-current">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.92,146.53,111.31,217.18,94.19,288.85,76.88,360.75,64.46,421.39,56.44Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Nos Services</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Nous proposons une gamme complète de services pour vous accompagner dans la création et le déploiement de vos applications.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                    <div class="w-14 h-14 bg-blue-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-2xl text-blue-600 dark:text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Développement d'Applications</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Création d'applications sur mesure pour toutes les plateformes avec une expérience utilisateur optimale et des performances exceptionnelles.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Applications web réactives</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Applications mobiles natives</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Applications de bureau</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                    <div class="w-14 h-14 bg-blue-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-server text-2xl text-blue-600 dark:text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Déploiement & Hébergement</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Solutions complètes pour déployer et héberger vos applications de manière sécurisée et performante.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Configuration des serveurs</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Déploiement automatisé</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Surveillance et maintenance</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                    <div class="w-14 h-14 bg-blue-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-2xl text-blue-600 dark:text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Support & Maintenance</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Accompagnement continu pour assurer le bon fonctionnement et l'évolution de vos applications.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Assistance technique</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Mises à jour régulières</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Évolution fonctionnelle</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                    <div class="w-14 h-14 bg-blue-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-project-diagram text-2xl text-blue-600 dark:text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Gestion de Projet</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Coordination complète de votre projet, de la conception à la livraison finale.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Analyse des besoins</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Planification détaillée</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Suivi et reporting</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                    <div class="w-14 h-14 bg-blue-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-paint-brush text-2xl text-blue-600 dark:text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">UI/UX Design</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Conception d'interfaces utilisateur intuitives et esthétiques pour une expérience optimale.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Wireframing et prototypage</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Design responsive</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Tests utilisateurs</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                    <div class="w-14 h-14 bg-blue-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-file-code text-2xl text-blue-600 dark:text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Livraison du Code Source</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Possibilité d'obtenir le code source complet de votre application pour une autonomie totale.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Code documenté</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Transfert de propriété</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Formation technique</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platforms Section -->
+    <section id="platforms" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Plateformes Supportées</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Nous développons des applications pour toutes les plateformes majeures, garantissant une présence complète pour votre solution.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                <!-- Web -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 text-center">
+                    <div class="platform-icon text-5xl mb-4 text-blue-500 dark:text-purple-400">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="font-bold">Web</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Applications web réactives</p>
+                </div>
+                
+                <!-- iOS -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 text-center">
+                    <div class="platform-icon text-5xl mb-4 text-blue-500 dark:text-purple-400">
+                        <i class="fab fa-apple"></i>
+                    </div>
+                    <h3 class="font-bold">iOS</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">iPhone et iPad</p>
+                </div>
+                
+                <!-- Android -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 text-center">
+                    <div class="platform-icon text-5xl mb-4 text-blue-500 dark:text-purple-400">
+                        <i class="fab fa-android"></i>
+                    </div>
+                    <h3 class="font-bold">Android</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Smartphones et tablettes</p>
+                </div>
+                
+                <!-- macOS -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 text-center">
+                    <div class="platform-icon text-5xl mb-4 text-blue-500 dark:text-purple-400">
+                        <i class="fab fa-apple"></i>
+                    </div>
+                    <h3 class="font-bold">macOS</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Applications pour Mac</p>
+                </div>
+                
+                <!-- Windows -->
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 text-center">
+                    <div class="platform-icon text-5xl mb-4 text-blue-500 dark:text-purple-400">
+                        <i class="fab fa-windows"></i>
+                    </div>
+                    <h3 class="font-bold">Windows</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Applications pour PC</p>
+                </div>
+                
+                <!-- Linux 
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 text-center">
+                    <div class="platform-icon text-5xl mb-4 text-blue-500 dark:text-purple-400">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <h3 class="font-bold">Linux</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Applications open-source</p>
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Notre Processus</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Une approche méthodique pour transformer votre idée en une application fonctionnelle et performante.
+                </p>
+            </div>
+            
+            <div class="relative">
+
+                <div class="space-y-12 md:space-y-0">
+                    <!-- Step 1 -->
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
+                            <h3 class="text-xl font-bold mb-2">1. Consultation Initiale</h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Nous discutons de votre projet, de vos objectifs et de vos attentes pour comprendre parfaitement vos besoins.
+                            </p>
+                        </div>
+                        <div class="md:w-12 relative flex justify-center">
+                            <div class="hidden md:block absolute w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-blue-500 dark:border-purple-600 transform -translate-x-1/2">
+                                <span class="text-blue-500 dark:text-purple-400 font-bold">1</span>
+                            </div>
+                            <div class="md:hidden w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-blue-500 dark:border-purple-600 flex items-center justify-center">
+                                <span class="text-blue-500 dark:text-purple-400 font-bold">1</span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 md:opacity-0"></div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:opacity-0 mb-6 md:mb-0"></div>
+                        <div class="md:w-12 relative flex justify-center">
+                            <div class="hidden md:block absolute w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-blue-500 dark:border-purple-600 transform -translate-x-1/2">
+                                <span class="text-blue-500 dark:text-purple-400 font-bold">2</span>
+                            </div>
+                            <div class="md:hidden w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-blue-500 dark:border-purple-600 flex items-center justify-center">
+                                <span class="text-blue-500 dark:text-purple-400 font-bold">2</span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <h3 class="text-xl font-bold mb-2">2. Analyse et Planification</h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Nous élaborons une stratégie détaillée, définissons les fonctionnalités et établissons un calendrier de développement.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
+                            <h3 class="text-xl font-bold mb-2">3. Design et Prototypage</h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Création des maquettes et prototypes interactifs pour visualiser l'interface utilisateur et l'expérience.
+                            </p>
+                        </div>
+                        <div class="md:w-12 relative flex justify-center">
+                            <div class="hidden md:block absolute w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-blue-500 dark:border-purple-600 transform -translate-x-1/2">
+                                <span class="text-blue-500 dark:text-purple-400 font-bold">3</span>
+                            </div>
+                            <div class="md:hidden w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-blue-500 dark:border-purple-600 flex items-center justify-center">
+                                <span class="text-blue-500 dark:text-purple-400 font-bold">3</span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 md:opacity-0"></div>
+                    </div>
+
+                    <!-- Nouvelle étape : Rectification -->
+                <div class="md:flex items-center">
+                    <div class="md:w-1/2 md:pr-12 md:opacity-0 mb-6 md:mb-0"></div>
+                    <div class="md:w-12 relative flex justify-center">
+                        <div class="hidden md:block absolute w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-green-500 dark:border-green-400 transform -translate-x-1/2">
+                            <span class="text-green-600 dark:text-green-400 font-bold">★</span>
+                        </div>
+                        <div class="md:hidden w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-green-500 dark:border-green-400 flex items-center justify-center">
+                            <span class="text-green-600 dark:text-green-400 font-bold">★</span>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 md:pl-12">
+                        <h3 class="text-xl font-bold mb-2">Rectification</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Révisions des maquettes et ajustements suite aux retours utilisateurs avant le développement.
+                        </p>
+                    </div>
+                </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:opacity-0 mb-6 md:mb-0"></div>
+                        <div class="md:w-12 relative flex justify-center">
+                            <div class="hidden md:block absolute w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-blue-500 dark:border-purple-600 transform -translate-x-1/2">
+                                <span class="text-blue-500 dark:text-purple-400 font-bold">4</span>
+                            </div>
+                            <div class="md:hidden w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-blue-500 dark:border-purple-600 flex items-center justify-center">
+                                <span class="text-blue-500 dark:text-purple-400 font-bold">4</span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <h3 class="text-xl font-bold mb-2">4. Développement</h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Codage de l'application avec des technologies modernes et adaptées à chaque plateforme cible.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 5 -->
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
+                            <h3 class="text-xl font-bold mb-2">5. Tests et Assurance Qualité</h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Tests rigoureux pour garantir la stabilité, la sécurité et les performances de votre application.
+                            </p>
+                        </div>
+                        <div class="md:w-12 relative flex justify-center">
+                            <div class="hidden md:block absolute w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-blue-500 dark:border-purple-600 transform -translate-x-1/2">
+                                <span class="text-blue-500 dark:text-purple-400 font-bold">5</span>
+                            </div>
+                            <div class="md:hidden w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-blue-500 dark:border-purple-600 flex items-center justify-center">
+                                <span class="text-blue-500 dark:text-purple-400 font-bold">5</span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 md:opacity-0"></div>
+                    </div>
+                    
+                    <!-- Step 6 -->
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:opacity-0 mb-6 md:mb-0"></div>
+                        <div class="md:w-12 relative flex justify-center">
+                            <div class="hidden md:block absolute w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-blue-500 dark:border-purple-600 transform -translate-x-1/2">
+                                <span class="text-blue-500 dark:text-purple-400 font-bold">6</span>
+                            </div>
+                            <div class="md:hidden w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-blue-500 dark:border-purple-600 flex items-center justify-center">
+                                <span class="text-blue-500 dark:text-purple-400 font-bold">6</span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <h3 class="text-xl font-bold mb-2">6. Déploiement et Lancement</h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Mise en ligne de votre application sur toutes les plateformes cibles avec une configuration optimale.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 7 -->
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
+                            <h3 class="text-xl font-bold mb-2">7. Support et Évolution</h3>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Accompagnement continu pour maintenir et faire évoluer votre application selon vos besoins.
+                            </p>
+                        </div>
+                        <div class="md:w-12 relative flex justify-center">
+                            <div class="hidden md:block absolute w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-blue-500 dark:border-purple-600 transform -translate-x-1/2">
+                                <span class="text-blue-500 dark:text-purple-400 font-bold">7</span>
+                            </div>
+                            <div class="md:hidden w-12 h-12 rounded-full bg-white dark:bg-gray-900 border-4 border-blue-500 dark:border-purple-600 flex items-center justify-center">
+                                <span class="text-blue-500 dark:text-purple-400 font-bold">7</span>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 md:opacity-0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Prêt à Concrétiser Votre Projet ?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">
+                Contactez-nous dès aujourd'hui pour discuter de votre projet et obtenir un premier rendez-vous gratuit.
+            </p>
+            <a href="#contact" class="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-full font-bold transition-colors inline-block">
+                Prendre Rendez-vous
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Contactez-nous</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Prenez contact avec notre équipe pour discuter de votre projet et planifier un premier rendez-vous.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold mb-6">Formulaire de Contact</h3>
+                    
+                    <!-- Contact Form (Demo) -->
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nom complet</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-white" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-white" required>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-white">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-white" required></textarea>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-3 rounded-lg transition-colors">
+                                Envoyer le message
+                            </button>
+                        </div>
+                        
+                        <div class="text-center text-sm text-gray-500 dark:text-gray-400">
+                            <p>Ceci est une démo. Pour un vrai contact, veuillez utiliser les coordonnées ci-contre.</p>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Informations de Contact</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-blue-600 dark:text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Email</h4>
+                                    <a href="mailto:contact@strateklabs.com" class="text-blue-600 dark:text-purple-400 hover:underline">contact@strateklabs.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-phone text-blue-600 dark:text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Téléphone</h4>
+                                    <a href="tel:+33123456789" class="text-blue-600 dark:text-purple-400 hover:underline">+33 1 23 45 67 89</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-blue-600 dark:text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Adresse</h4>
+                                    <p>123 Avenue de l'Innovation<br>75000 Paris, France</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="text-xl font-bold mb-6">Suivez-nous</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-blue-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center text-blue-600 dark:text-purple-400 hover:bg-blue-200 dark:hover:bg-purple-900/50 transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center text-blue-600 dark:text-purple-400 hover:bg-blue-200 dark:hover:bg-purple-900/50 transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center text-blue-600 dark:text-purple-400 hover:bg-blue-200 dark:hover:bg-purple-900/50 transition-colors">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center text-blue-600 dark:text-purple-400 hover:bg-blue-200 dark:hover:bg-purple-900/50 transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <!-- Logo placeholder -->
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">SL</div>
+                        <span class="text-xl font-bold">Stratek Labs</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Solutions de développement d'applications multi-plateformes sur mesure pour transformer vos idées en réalité.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Développement d'Applications</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Déploiement & Hébergement</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Support & Maintenance</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Livraison du Code Source</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Plateformes</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#platforms" class="text-gray-400 hover:text-white transition-colors">Web</a></li>
+                        <li><a href="#platforms" class="text-gray-400 hover:text-white transition-colors">iOS & Android</a></li>
+                        <li><a href="#platforms" class="text-gray-400 hover:text-white transition-colors">macOS & Windows</a></li>
+                        <li><a href="#platforms" class="text-gray-400 hover:text-white transition-colors">Linux</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                            <a href="mailto:contact@strateklabs.com" class="text-gray-400 hover:text-white transition-colors">contact@strateklabs.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-gray-400"></i>
+                            <a href="tel:+33123456789" class="text-gray-400 hover:text-white transition-colors">+33 1 23 45 67 89</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">Paris, France</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    &copy; 2023 Stratek Labs. Tous droits réservés.
+                </p>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 dark:bg-purple-600 text-white rounded-full flex items-center justify-center shadow-lg transform translate-y-20 opacity-0 transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference or use system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            html.classList.add('dark');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('translate-y-20', 'opacity-0');
+                backToTopButton.classList.add('translate-y-0', 'opacity-100');
+            } else {
+                backToTopButton.classList.add('translate-y-20', 'opacity-0');
+                backToTopButton.classList.remove('translate-y-0', 'opacity-100');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form submission (demo)
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            // Show success message (in a real scenario, this would send data to a server)
+            alert(`Merci ${name} pour votre message ! Ceci est une démo, dans un environnement réel, nous vous contacterions à ${email} ou au ${phone || 'numéro que vous avez fourni'}.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjust for header height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
