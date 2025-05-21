@@ -41,15 +41,15 @@
         }
 
         .animated-gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
+            background: linear-gradient(270deg, #3b82f6, #8b5cf6, #3b82f6);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            background-size: 200% 100%;
-            animation: gradientMove 3s linear infinite;
+            background-size: 200% auto;
+            animation: gradient 3s linear infinite;
         }
 
-        @keyframes gradientMove {
+        @keyframes gradient {
             0% {
                 background-position: 0% 50%;
             }
@@ -153,9 +153,9 @@
             
             <nav class="hidden md:flex space-x-8">
                 <a href="#services" data-translate="services" class="hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Services</a>
-                <a href="#platforms" data-translate="platforms" class="hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Plateformes</a>
-                <a href="#process" class="hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Processus</a>
-                <a href="#contact" class="hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Contact</a>
+                <a href="#platforms" data-translate="platforms.title" class="hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Plateformes</a>
+                <a href="#process" data-translate="process.title" class="hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Processus</a>
+                <a href="#contact" data-translate="contact" class="hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Contact</a>
             </nav>
             
             <div class="flex items-center space-x-4">
@@ -171,11 +171,11 @@
                     <i class="fas fa-sun hidden dark:block"></i>
                 </button>
                 
-                <a href="#contact" class="hidden md:block bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-2 rounded-full transition-colors">
+                <a href="#contact" class="hidden md:block bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-2 rounded-full transition-colors" data-translate="contactUs">
                     Nous contacter
                 </a>
                 
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <button id="mobile-menu-button" class="md:hidden p-2" aria-label="Menu" data-translate="navigation.menuOpen">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -185,8 +185,8 @@
         <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-800 shadow-lg">
             <div class="container mx-auto px-4 py-2 flex flex-col space-y-2">
                 <a href="#services" data-translate="services" class="py-2 hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Services</a>
-                <a href="#platforms" data-translate="platforms" class="py-2 hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Plateformes</a>
-                <a href="#process" data-translate="process" class="py-2 hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Processus</a>
+                <a href="#platforms" data-translate="platforms.title" class="py-2 hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Plateformes</a>
+                <a href="#process" data-translate="process.title" class="py-2 hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Processus</a>
                 <a href="#contact" data-translate="contact" class="py-2 hover:text-blue-600 dark:hover:text-purple-400 transition-colors">Contact</a>
             </div>
         </div>
@@ -196,7 +196,7 @@
     <section class="relative bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 py-20">
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6" data-translate="heroTitle">
                     développement de solution <span class="animated-gradient-text">multi-plateformes</span> sur mesure
                 </h1>
                 <p class="text-lg mb-8 text-gray-600 dark:text-gray-300" data-translate="heroDesc">
@@ -206,7 +206,7 @@
                     <a href="#services" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-full transition-colors" data-translate="discoverServices">
                         Découvrir nos services
                     </a>
-                    <a href="#contact" class="border-2 border-blue-500 dark:border-purple-500 text-blue-500 dark:text-purple-400 hover:bg-blue-50 dark:hover:bg-gray-800 px-8 py-3 rounded-full transition-colors">
+                    <a href="#contact" class="border-2 border-blue-500 dark:border-purple-500 text-blue-500 dark:text-purple-400 hover:bg-blue-50 dark:hover:bg-gray-800 px-8 py-3 rounded-full transition-colors" data-translate="contactUs">
                         Nous contacter
                     </a>
                 </div>
@@ -291,11 +291,11 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Applications mobiles natives</span>
+                            <span data-translate="featuredServices.mobile">Applications mobiles natives</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Applications de bureau</span>
+                            <span data-translate="featuredServices.desktop">Applications de bureau</span>
                         </li>
                     </ul>
                 </div>
@@ -305,22 +305,22 @@
                     <div class="w-14 h-14 bg-blue-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-server text-2xl text-blue-600 dark:text-purple-400"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Déploiement & Hébergement</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    <h3 class="text-xl font-bold mb-3" data-translate="deployment">Déploiement & Hébergement</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-translate="deploymentDesc">
                         Solutions complètes pour déployer et héberger vos applications de manière sécurisée et performante.
                     </p>
                     <ul class="space-y-2 mb-6">
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Configuration des serveurs</span>
+                            <span data-translate="featuredServices.serverConfig">Configuration des serveurs</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Déploiement automatisé</span>
+                            <span data-translate="featuredServices.autoDeployment">Déploiement automatisé</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Surveillance et maintenance</span>
+                            <span data-translate="featuredServices.monitoring">Surveillance et maintenance</span>
                         </li>
                     </ul>
                 </div>
@@ -330,22 +330,20 @@
                     <div class="w-14 h-14 bg-blue-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-headset text-2xl text-blue-600 dark:text-purple-400"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Support & Maintenance</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Accompagnement continu pour assurer le bon fonctionnement et l'évolution de vos applications.
-                    </p>
+                    <h3 class="text-xl font-bold mb-3" data-translate="support">Support & Maintenance</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-translate="supportDesc">Accompagnement continu pour assurer le bon fonctionnement et l'évolution de vos applications.</p>
                     <ul class="space-y-2 mb-6">
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Assistance technique</span>
+                            <span data-translate="featuredServices.techSupport">Assistance technique</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Mises à jour régulières</span>
+                            <span data-translate="featuredServices.updates">Mises à jour régulières</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Évolution fonctionnelle</span>
+                            <span data-translate="featuredServices.evolution">Évolution fonctionnelle</span>
                         </li>
                     </ul>
                 </div>
@@ -355,22 +353,20 @@
                     <div class="w-14 h-14 bg-blue-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-project-diagram text-2xl text-blue-600 dark:text-purple-400"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Gestion de Projet</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Coordination complète de votre projet, de la conception à la livraison finale.
-                    </p>
+                    <h3 class="text-xl font-bold mb-3" data-translate="projectManagement">Gestion de Projet</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-translate="projectManagementDesc">Coordination complète de votre projet, de la conception à la livraison finale.</p>
                     <ul class="space-y-2 mb-6">
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Analyse des besoins</span>
+                            <span data-translate="featuredServices.needsAnalysis">Analyse des besoins</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Planification détaillée</span>
+                            <span data-translate="featuredServices.planning">Planification détaillée</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Suivi et reporting</span>
+                            <span data-translate="featuredServices.reporting">Suivi et reporting</span>
                         </li>
                     </ul>
                 </div>
@@ -380,22 +376,20 @@
                     <div class="w-14 h-14 bg-blue-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-paint-brush text-2xl text-blue-600 dark:text-purple-400"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">UI/UX Design</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Conception d'interfaces utilisateur intuitives et esthétiques pour une expérience optimale.
-                    </p>
+                    <h3 class="text-xl font-bold mb-3" data-translate="uiuxDesign">UI/UX Design</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-translate="uiuxDesignDesc">Conception d'interfaces utilisateur intuitives et esthétiques pour une expérience optimale.</p>
                     <ul class="space-y-2 mb-6">
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Wireframing et prototypage</span>
+                            <span data-translate="featuredServices.wireframing">Wireframing et prototypage</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Design responsive</span>
+                            <span data-translate="featuredServices.responsiveDesign">Design responsive</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Tests utilisateurs</span>
+                            <span data-translate="featuredServices.userTesting">Tests utilisateurs</span>
                         </li>
                     </ul>
                 </div>
@@ -405,22 +399,20 @@
                     <div class="w-14 h-14 bg-blue-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-file-code text-2xl text-blue-600 dark:text-purple-400"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Livraison du Code Source</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Possibilité d'obtenir le code source complet de votre application pour une autonomie totale.
-                    </p>
+                    <h3 class="text-xl font-bold mb-3" data-translate="sourceCode">Livraison du Code Source</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4" data-translate="sourceCodeDesc">Possibilité d'obtenir le code source complet de votre application pour une autonomie totale.</p>
                     <ul class="space-y-2 mb-6">
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Code documenté</span>
+                            <span data-translate="featuredServices.documentation">Code documenté</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Transfert de propriété</span>
+                            <span data-translate="featuredServices.ownership">Transfert de propriété</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Formation technique</span>
+                            <span data-translate="featuredServices.training">Formation technique</span>
                         </li>
                     </ul>
                 </div>
@@ -444,8 +436,8 @@
                     <div class="platform-icon text-5xl mb-4 text-blue-500 dark:text-purple-400">
                         <i class="fas fa-globe"></i>
                     </div>
-                    <h3 class="font-bold">Web</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Applications web réactives</p>
+                    <h3 class="font-bold" data-translate="platforms.web">Web</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2" data-translate="platforms.web">Applications web réactives</p>
                 </div>
                 
                 <!-- iOS -->
@@ -453,8 +445,8 @@
                     <div class="platform-icon text-5xl mb-4 text-blue-500 dark:text-purple-400">
                         <i class="fab fa-apple"></i>
                     </div>
-                    <h3 class="font-bold">iOS</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">iPhone et iPad</p>
+                    <h3 class="font-bold" data-translate="platforms.ios">iOS</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2" data-translate="platforms.ios">iPhone et iPad</p>
                 </div>
                 
                 <!-- Android -->
@@ -462,8 +454,8 @@
                     <div class="platform-icon text-5xl mb-4 text-blue-500 dark:text-purple-400">
                         <i class="fab fa-android"></i>
                     </div>
-                    <h3 class="font-bold">Android</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Smartphones et tablettes</p>
+                    <h3 class="font-bold" data-translate="platforms.android">Android</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2" data-translate="platforms.android">Smartphones et tablettes</p>
                 </div>
                 
                 <!-- macOS -->
@@ -471,8 +463,8 @@
                     <div class="platform-icon text-5xl mb-4 text-blue-500 dark:text-purple-400">
                         <i class="fab fa-apple"></i>
                     </div>
-                    <h3 class="font-bold">macOS</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Applications pour Mac</p>
+                    <h3 class="font-bold" data-translate="platforms.macos">macOS</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2" data-translate="platforms.macos">Applications pour Mac</p>
                 </div>
                 
                 <!-- Windows -->
@@ -480,8 +472,8 @@
                     <div class="platform-icon text-5xl mb-4 text-blue-500 dark:text-purple-400">
                         <i class="fab fa-windows"></i>
                     </div>
-                    <h3 class="font-bold">Windows</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Applications pour PC</p>
+                    <h3 class="font-bold" data-translate="platforms.windows">Windows</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2" data-translate="platforms.windows">Applications pour PC</p>
                 </div>
                 
                 <!-- Linux 
@@ -502,19 +494,18 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold mb-4" data-translate="process.title">Notre Processus</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-translate="process.description">
                     Une approche méthodique pour transformer votre idée en une application fonctionnelle et performante.
                 </p>
             </div>
             
             <div class="relative">
-
                 <div class="space-y-12 md:space-y-0">
                     <!-- Step 1 -->
                     <div class="md:flex items-center">
                         <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
                             <h3 class="text-xl font-bold mb-2" data-translate="process.step1.title">1. Consultation Initiale</h3>
-                            <p class="text-gray-600 dark:text-gray-300">
+                            <p class="text-gray-600 dark:text-gray-300" data-translate="process.step1.desc">
                                 Nous discutons de votre projet, de vos objectifs et de vos attentes pour comprendre parfaitement vos besoins.
                             </p>
                         </div>
@@ -541,8 +532,8 @@
                             </div>
                         </div>
                         <div class="md:w-1/2 md:pl-12">
-                            <h3 class="text-xl font-bold mb-2">2. Analyse et Planification</h3>
-                            <p class="text-gray-600 dark:text-gray-300">
+                            <h3 class="text-xl font-bold mb-2" data-translate="process.step2.title">2. Analyse et Planification</h3>
+                            <p class="text-gray-600 dark:text-gray-300" data-translate="process.step2.desc">
                                 Nous élaborons une stratégie détaillée, définissons les fonctionnalités et établissons un calendrier de développement.
                             </p>
                         </div>
@@ -551,8 +542,8 @@
                     <!-- Step 3 -->
                     <div class="md:flex items-center">
                         <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
-                            <h3 class="text-xl font-bold mb-2">3. Design et Prototypage</h3>
-                            <p class="text-gray-600 dark:text-gray-300">
+                            <h3 class="text-xl font-bold mb-2" data-translate="process.step3.title">3. Design et Prototypage</h3>
+                            <p class="text-gray-600 dark:text-gray-300" data-translate="process.step3.desc">
                                 Création des maquettes et prototypes interactifs pour visualiser l'interface utilisateur et l'expérience.
                             </p>
                         </div>
@@ -579,8 +570,8 @@
                         </div>
                     </div>
                     <div class="md:w-1/2 md:pl-12">
-                        <h3 class="text-xl font-bold mb-2">Rectification</h3>
-                        <p class="text-gray-600 dark:text-gray-300">
+                        <h3 class="text-xl font-bold mb-2" data-translate="process.rectification.title">Rectification</h3>
+                        <p class="text-gray-600 dark:text-gray-300" data-translate="process.rectification.desc">
                             Révisions des maquettes et ajustements suite aux retours utilisateurs avant le développement.
                         </p>
                     </div>
@@ -598,8 +589,8 @@
                             </div>
                         </div>
                         <div class="md:w-1/2 md:pl-12">
-                            <h3 class="text-xl font-bold mb-2">4. Développement</h3>
-                            <p class="text-gray-600 dark:text-gray-300">
+                            <h3 class="text-xl font-bold mb-2" data-translate="process.step4.title">4. Développement</h3>
+                            <p class="text-gray-600 dark:text-gray-300" data-translate="process.step4.desc">
                                 Codage de l'application avec des technologies modernes et adaptées à chaque plateforme cible.
                             </p>
                         </div>
@@ -608,8 +599,8 @@
                     <!-- Step 5 -->
                     <div class="md:flex items-center">
                         <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
-                            <h3 class="text-xl font-bold mb-2">5. Tests et Assurance Qualité</h3>
-                            <p class="text-gray-600 dark:text-gray-300">
+                            <h3 class="text-xl font-bold mb-2" data-translate="process.step5.title">5. Tests et Assurance Qualité</h3>
+                            <p class="text-gray-600 dark:text-gray-300" data-translate="process.step5.desc">
                                 Tests rigoureux pour garantir la stabilité, la sécurité et les performances de votre application.
                             </p>
                         </div>
@@ -636,8 +627,8 @@
                             </div>
                         </div>
                         <div class="md:w-1/2 md:pl-12">
-                            <h3 class="text-xl font-bold mb-2">6. Déploiement et Lancement</h3>
-                            <p class="text-gray-600 dark:text-gray-300">
+                            <h3 class="text-xl font-bold mb-2" data-translate="process.step6.title">6. Déploiement et Lancement</h3>
+                            <p class="text-gray-600 dark:text-gray-300" data-translate="process.step6.desc">
                                 Mise en ligne de votre application sur toutes les plateformes cibles avec une configuration optimale.
                             </p>
                         </div>
@@ -646,8 +637,8 @@
                     <!-- Step 7 -->
                     <div class="md:flex items-center">
                         <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
-                            <h3 class="text-xl font-bold mb-2">7. Support et Évolution</h3>
-                            <p class="text-gray-600 dark:text-gray-300">
+                            <h3 class="text-xl font-bold mb-2" data-translate="process.step7.title">7. Support et Évolution</h3>
+                            <p class="text-gray-600 dark:text-gray-300" data-translate="process.step7.desc">
                                 Accompagnement continu pour maintenir et faire évoluer votre application selon vos besoins.
                             </p>
                         </div>
@@ -683,15 +674,15 @@
     <section id="contact" class="py-20 bg-white dark:bg-gray-900">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Contactez-nous</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold mb-4" data-translate="contact">Contactez-nous</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-translate="contactDesc">
                     Prenez contact avec notre équipe pour discuter de votre projet et planifier un premier rendez-vous.
                 </p>
             </div>
             
             <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg p-8">
-                    <h3 class="text-xl font-bold mb-6">Formulaire de Contact</h3>
+                    <h3 class="text-xl font-bold mb-6" data-translate="contactFormTitle">Formulaire de Contact</h3>
                     
                     <!-- Contact Form (Demo) -->
                     <form id="contact-form" class="space-y-6">
@@ -703,28 +694,28 @@
                         </div>
                         
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" data-translate="email">Email</label>
                             <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-white" required>
                         </div>
                         
                         <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Téléphone</label>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" data-translate="phone">Téléphone</label>
                             <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-white">
                         </div>
                         
                         <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" data-translate="message">Message</label>
                             <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:text-white" required></textarea>
                         </div>
                         
                         <div>
-                            <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-3 rounded-lg transition-colors">
+                            <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-3 rounded-lg transition-colors" data-translate="sendMessage">
                                 Envoyer le message
                             </button>
                         </div>
                         
                         <div class="text-center text-sm text-gray-500 dark:text-gray-400">
-                            <p>Ceci est une démo. Pour un vrai contact, veuillez utiliser les coordonnées ci-contre.</p>
+                            <p data-translate="demo.warning">Ceci est une démo. Pour un vrai contact, veuillez utiliser les coordonnées ci-contre.</p>
                         </div>
                     </form>
                 </div>
@@ -769,16 +760,16 @@
                     <div class="mt-8">
                         <h3 class="text-xl font-bold mb-6" data-translate="followUs">Suivez-nous</h3>
                         <div class="flex space-x-4">
-                            <a href="#" class="w-10 h-10 bg-blue-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center text-blue-600 dark:text-purple-400 hover:bg-blue-200 dark:hover:bg-purple-900/50 transition-colors">
+                            <a href="#" aria-label="LinkedIn" data-translate="social.linkedin" class="social-link">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 bg-blue-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center text-blue-600 dark:text-purple-400 hover:bg-blue-200 dark:hover:bg-purple-900/50 transition-colors">
+                            <a href="#" aria-label="Twitter" data-translate="social.twitter" class="social-link">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 bg-blue-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center text-blue-600 dark:text-purple-400 hover:bg-blue-200 dark:hover:bg-purple-900/50 transition-colors">
+                            <a href="#" aria-label="GitHub" data-translate="social.github" class="social-link">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 bg-blue-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center text-blue-600 dark:text-purple-400 hover:bg-blue-200 dark:hover:bg-purple-900/50 transition-colors">
+                            <a href="#" aria-label="Instagram" data-translate="social.instagram" class="social-link">
                                 <i class="fab fa-instagram"></i>
                             </a>
                         </div>
@@ -865,9 +856,48 @@
     </footer>
 
     <!-- Back to top button -->
-    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 dark:bg-purple-600 text-white rounded-full flex items-center justify-center shadow-lg transform translate-y-20 opacity-0 transition-all duration-300">
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 dark:bg-purple-600 text-white rounded-full flex items-center justify-center shadow-lg transform translate-y-20 opacity-0 transition-all duration-300" aria-label="Back to top" data-translate="navigation.backToTop">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Menu button -->
+    <button id="mobile-menu-button" class="md:hidden p-2" aria-label="Menu" data-translate="navigation.menuOpen">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Form validation messages -->
+    <div class="form-messages hidden">
+        <p class="error-message text-red-500" data-translate="form.error"></p>
+        <p class="success-message text-green-500" data-translate="form.success"></p>
+    </div>
+
+    <!-- Form labels and messages -->
+    <label for="name" class="required-field" data-translate="form.requiredField">*</label>
+    <span class="error-text" data-translate="form.invalidEmail"></span>
+    <span class="error-text" data-translate="form.invalidPhone"></span>
+
+    <!-- EmailJS messages -->
+    <script>
+        // ...existing code...
+        alert(translations[currentLang].emailjs.successMessage);
+        // ...existing code...
+        alert(translations[currentLang].emailjs.errorMessage);
+        // ...existing code...
+    </script>
+
+    <!-- Social media links - Adding aria-labels -->
+    <a href="#" aria-label="LinkedIn" data-translate="social.linkedin" class="social-link">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="#" aria-label="Twitter" data-translate="social.twitter" class="social-link">
+        <i class="fab fa-twitter"></i>
+    </a>
+    <a href="#" aria-label="GitHub" data-translate="social.github" class="social-link">
+        <i class="fab fa-github"></i>
+    </a>
+    <a href="#" aria-label="Instagram" data-translate="social.instagram" class="social-link">
+        <i class="fab fa-instagram"></i>
+    </a>
 
     <!-- Scripts -->
     <script>
@@ -1002,10 +1032,17 @@
             document.querySelectorAll('[data-translate]').forEach(element => {
                 const key = element.getAttribute('data-translate');
                 if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
+                    // Si la valeur contient du HTML (comme <br>), on utilise innerHTML
+                    if (translations[lang][key].includes('<')) {
+                        element.innerHTML = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
                 }
             });
             localStorage.setItem('preferred-language', lang);
+            // Mettre à jour l'attribut lang de la balise HTML
+            document.documentElement.lang = lang;
         }
 
         // Initialisation
